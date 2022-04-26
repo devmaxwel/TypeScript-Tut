@@ -20,7 +20,7 @@ const names = [10, 20, 30];
 // Allowed
 names.push(20);
 //  Not allowed beacuse array is of type numbers
-names.push("maxwel");
+// names.push("maxwel");
 // The above method implies to string array
 
 const mixed = ["maxwe", true, 6];
@@ -80,15 +80,68 @@ ninjaOne = {
 // Type any
 // We can change this variable to any type
 let num: any = 30;
-console.log(num)
+console.log(num);
 num = "Maxwel";
 console.log(num);
 num = { name: "ochieng" };
-console.log(num)
+console.log(num);
 
-const mix:any[]=[]
-mix.push(9)
-mix.push("max") 
+const mix: any[] = [];
+mix.push(9);
+mix.push("max");
 
 // defining type
 
+// function types
+// seeting a default value in parameter
+const add = (a: number, b: number = 9): number => {
+  return a + b;
+};
+add(5);
+
+// optional parameter typescript
+const minus = (a: number, b: number, c?: number): number => {
+  return a + b;
+};
+// Without the optional chaining character(?) the would be an error(>>Expected 3 arguments, but got 2 )
+minus(5, 7);
+
+// Type aliases
+type StringOrNum = string | number;
+type ObjeWithName = { name: string; uuid: StringOrNum };
+
+const logdetails = (uuid: StringOrNum, item: string) => {
+  console.log(`${item} has a uuid of ${uuid}`);
+};
+
+const sayHi = (user: ObjeWithName, uuid: StringOrNum) => {
+  console.log(`${user.name} of id: ${uuid} says hello`);
+};
+sayHi({ name: "maxwel", uuid: "uiu68996" }, 5667889);
+
+// Function Types (Signatures)
+// Example 1
+// function signature
+let greet: (a: string, b: string) => void;
+greet = (name: string, greeting: string) => {
+  console.log(`${name} says ${greeting}`);
+};
+
+// Exmaple 2
+// function signature
+let calc: (a: number, b: number, c: string) => number;
+calc = (num1: number, num2: number, action: string) => {
+  if (action === "add") {
+    return num1 + num2;
+  } else {
+    return num2 - num1;
+  }
+};
+calc(50, 20, "sub");
+
+// Exmple 3
+let logDetails: (obj: { name: string; age: number }) => void;
+type person = { name: string; age: number };
+logDetails = (user: person) => {
+  console.log(`${user.name} is ${user.name} years old`);
+};
