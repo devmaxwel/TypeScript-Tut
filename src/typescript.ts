@@ -145,3 +145,4 @@ type person = { name: string; age: number };
 logDetails = (user: person) => {
   console.log(`${user.name} is ${user.name} years old`);
 };
+

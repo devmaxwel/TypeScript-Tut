@@ -17,7 +17,7 @@ const names = [10, 20, 30];
 // Allowed
 names.push(20);
 //  Not allowed beacuse array is of type numbers
-names.push("maxwel");
+// names.push("maxwel");
 // The above method implies to string array
 const mixed = ["maxwe", true, 6];
 // The above array is of mixed array type and If I try to push any type it will accept no error
@@ -72,3 +72,46 @@ const mix = [];
 mix.push(9);
 mix.push("max");
 // defining type
+// function types
+// seeting a default value in parameter
+const add = (a, b = 9) => {
+    return a + b;
+};
+add(5);
+// optional parameter typescript
+const minus = (a, b, c) => {
+    return a + b;
+};
+// Without the optional chaining character(?) the would be an error(>>Expected 3 arguments, but got 2 )
+minus(5, 7);
+const logdetails = (uuid, item) => {
+    console.log(`${item} has a uuid of ${uuid}`);
+};
+const sayHi = (user, uuid) => {
+    console.log(`${user.name} of id: ${uuid} says hello`);
+};
+sayHi({ name: "maxwel", uuid: "uiu68996" }, 5667889);
+// Function Types (Signatures)
+// Example 1
+// function signature
+let greet;
+greet = (name, greeting) => {
+    console.log(`${name} says ${greeting}`);
+};
+// Exmaple 2
+// function signature
+let calc;
+calc = (num1, num2, action) => {
+    if (action === "add") {
+        return num1 + num2;
+    }
+    else {
+        return num2 - num1;
+    }
+};
+calc(50, 20, "sub");
+// Exmple 3
+let logDetails;
+logDetails = (user) => {
+    console.log(`${user.name} is ${user.name} years old`);
+};
